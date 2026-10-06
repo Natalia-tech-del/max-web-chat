@@ -1,3 +1,10 @@
+import { useSessionStore } from '@entities/session'
+import { LoginPage } from '@pages/login'
+
+
 export const App = () => {
-    return <h1>MAX Web Chat</h1>
-  }
+  const session = useSessionStore((state) => state.session)
+
+    return (
+    session ? <h1>Чат</h1>: <LoginPage />
+  )}
