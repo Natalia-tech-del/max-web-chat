@@ -1,5 +1,6 @@
 import {  type SubmitEvent, useState } from 'react'
 import { loginFormSchema } from '../model/login-form.schema'
+import styles from './login-form.module.css';
 
 export const LoginForm = () => {
     const [idInstance, setIdInstance] = useState('');
@@ -23,15 +24,15 @@ export const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>idInstance
-                <input type="number" name="idInstance" value={idInstance} onChange={(event) => setIdInstance(event.target.value)} />
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <label className={styles.label}>idInstance
+                <input className={styles.input} type="text" name="idInstance" value={idInstance} onChange={(event) => setIdInstance(event.target.value)} />
             </label>
-            <label>apiTokenInstance
-                <input type="text" name="apiTokenInstance" value={apiTokenInstance} onChange={(event) => setApiTokenInstance(event.target.value)} />
+            <label className={styles.label}>apiTokenInstance
+                <input className={styles.input} type="text" name="apiTokenInstance" value={apiTokenInstance} onChange={(event) => setApiTokenInstance(event.target.value)} />
             </label>
-            {error ? <p>{error}</p> : null}
-            <button type="submit">Войти</button>
+            {error ? <p className={styles.error}>{error}</p> : null}
+            <button className={styles.button} type="submit">Войти</button>
         </form>
     )
 }

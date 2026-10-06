@@ -1,11 +1,16 @@
 import { LoginForm } from "@features/auth";
+import styles from './login-page.module.css';
 
 export const LoginPage = () => {
-        return(
-            <main>
-                <h1>Вход</h1>
+    return (
+        <main className={styles.page}>
+            <div className={styles.card}>
+                <h1 className={styles.title}>Вход</h1>
+                <p className={styles.subtitle}>
+                    Введите idInstance и apiTokenInstance из кабинета GREEN-API
+                </p>
                 <LoginForm />
-            </main>
-        )
+            </div>
+        </main >
+    )
 }
- 
