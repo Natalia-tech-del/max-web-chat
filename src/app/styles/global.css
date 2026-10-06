@@ -11,6 +11,18 @@ body,
   margin: 0;
 }
 
+:root {
+  --color-bg: #edeef2;
+  --color-surface: #ffffff;
+  --color-text: #060708;
+  --color-muted: #060708ad;
+  --color-line: #0c0d0e29;
+  --color-primary: #007aff;
+  --color-danger: #ff303c;
+}
+
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
