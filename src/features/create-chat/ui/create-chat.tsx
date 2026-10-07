@@ -47,7 +47,7 @@ export const CreateChat = () => {
             } else {
                 setPhoneError('У номера отсутствует MAX аккаунт')
             }
-        } catch (error) {
+        } catch {
             setPhoneError('Ошибка при проверке аккаунта')
         }
 

@@ -1,58 +1,89 @@
 .page {
-    display: flex;
-    height: 100%;
-    background: #edeef2;
-  }
-  
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    background: #fff;
-    border-right: 1px solid #0c0d0e29;
-  }
-  
-  .sidebarHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-  }
-  
-  .title {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-  }
-  
-  .logout {
-    margin: auto 16px 16px;
-    border: 0;
-    background: transparent;
-    color: #007aff;
-    font: inherit;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .dialog {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #7eb6f6 0%, #c5e4fb 100%);
-  }
-  
-  .dialog .empty {
-    color: #060708;
-    font-size: 16px;
-    font-weight: 500;
-  }
+  display: flex;
+  height: 100%;
+  background: #edeef2;
+}
 
-  .placeholder {
-    margin: 0;
-    padding: 8px 16px 0;
-    color: #060708ad;
-    font-size: 14px;
-  }
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 393px;
+  background: #fff;
+  border-right: 1px solid #0c0d0e29;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.logout {
+  margin: auto 16px 16px;
+  border: 0;
+  background: transparent;
+  color: #007aff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dialog {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #7eb6f6 0%, #c5e4fb 100%);
+}
+
+.dialog .empty {
+  color: #060708;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.placeholder {
+  margin: 0;
+  padding: 8px 16px 0;
+  color: #060708ad;
+  font-size: 14px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chat,
+.chatActive {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 66px;
+  margin: 0;
+  padding: 9px 16px;
+  border: 0;
+  appearance: none;
+  background: #fff;
+  color: #060708;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chatActive {
+  background: #007aff14;
+}

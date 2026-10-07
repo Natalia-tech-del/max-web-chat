@@ -40,14 +40,12 @@ export const LoginForm = () => {
         try {
             const sessionResponse = await checkInstance(result.data.idInstance,
                 result.data.apiTokenInstance)
-            // ToDo Временно для создания страницы с чатами - потом раскомментировать и удалить строку ниже
-           // if (sessionResponse.stateInstance === 'authorized') {
-            if (sessionResponse.stateInstance) {
+           if (sessionResponse.stateInstance === 'authorized') {
                 login(result.data)
             } else {
                 setFormError('Инстанс не авторизован. Сначала авторизуйте инстанс по QR в кабинете GREEN-API')
             }
-        } catch (error) {
+        } catch {
             setFormError('Ошибка при проверке инстанса')
         }
     }
