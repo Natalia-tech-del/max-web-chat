@@ -1,10 +1,11 @@
 import { useSessionStore } from '@entities/session'
 import { LoginPage } from '@pages/login'
+import { ChatPage } from '@pages/chat'
 
 
 export const App = () => {
   const session = useSessionStore((state) => state.session)
 
     return (
-    session ? <h1>Чат</h1>: <LoginPage />
+    session ? <ChatPage />: <LoginPage />
   )}

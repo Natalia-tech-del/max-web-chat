@@ -25,10 +25,19 @@
 }
 
 .subtitle {
-    margin: 0 0 24px;
+    margin: 0 0 8px;
     color: #060708;
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
     text-align: center;
-  }
+}
+
+.hint {
+    margin: 0 0 24px;
+    color: #060708ad;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+}
