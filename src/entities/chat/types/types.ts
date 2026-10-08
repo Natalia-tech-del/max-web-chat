@@ -12,6 +12,7 @@ export type TChatActions = {
     addChat: (chat: TChat) => void
     selectChat: (chatId: string) => void
     clearChats: () => void
+    closeChat: () => void
 }
 
 export type TChatStore = TChatState & TChatActions

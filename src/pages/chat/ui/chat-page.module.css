@@ -36,20 +36,6 @@
   cursor: pointer;
 }
 
-.dialog {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #7eb6f6 0%, #c5e4fb 100%);
-}
-
-.dialog .empty {
-  color: #060708;
-  font-size: 16px;
-  font-weight: 500;
-}
-
 .placeholder {
   margin: 0;
   padding: 8px 16px 0;

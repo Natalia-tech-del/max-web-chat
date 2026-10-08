@@ -1,0 +1,1 @@
+export { useReceiveNotifications } from './model/use-receive-notifications'

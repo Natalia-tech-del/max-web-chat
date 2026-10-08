@@ -2,6 +2,9 @@ import { CreateChat } from '@features/create-chat'
 import styles from './chat-page.module.css'
 import { useSessionStore } from '@entities/session'
 import { useChatStore } from '@entities/chat'
+import { ChatDialog } from '@widgets/chat-dialog'
+import { useMessageStore } from '@entities/message'
+import { useReceiveNotifications } from '@features/receive-messages'
 
 export const ChatPage = () => {
     const logout = useSessionStore((state) => state.logout)
@@ -9,12 +12,14 @@ export const ChatPage = () => {
     const selectedChatId = useChatStore((state) => state.selectedChatId)
     const selectChat = useChatStore((state) => state.selectChat)
     const clearChats = useChatStore((state) => state.clearChats)
+    const clearMessages = useMessageStore((state) => state.clearMessages)
 
-    const selectedChat = chats.find((chat) => chat.chatId === selectedChatId)
+    useReceiveNotifications()
 
     const handleLogout = () => {
         logout()
         clearChats()
+        clearMessages()
     }
 
     return (
@@ -45,12 +50,7 @@ export const ChatPage = () => {
                     Выйти
                 </button>
             </aside>
-            <section className={styles.dialog}>
-                {chats.length === 0 ? (
-                    <p className={styles.empty}>Выберите чат или создайте новый</p>
-                )
-                    : selectedChat ? <p className={styles.empty}>{selectedChat.phoneNumber}</p> : null}
-            </section>
+            <ChatDialog />
         </main>
     )
 }
