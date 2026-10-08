@@ -13,7 +13,8 @@ export const useChatStore = create<TChatStore>()(
                   selectedChatId: newChat.chatId,
                   })),
                 selectChat: (chatId: string) => set({ selectedChatId: chatId }),
-                clearChats: () => set({ chats: [], selectedChatId: null })
+                clearChats: () => set({ chats: [], selectedChatId: null }),
+                closeChat: () => set({selectedChatId: null})
             }),
         {
             name: 'chats',
