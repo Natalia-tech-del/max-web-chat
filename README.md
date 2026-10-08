@@ -1,75 +1,40 @@
-# React + TypeScript + Vite
+# MAX Web Chat
+Веб-чат для MAX через GREEN-API HTTP API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Вход по ключам `idInstance` и `apiTokenInstance` (получить нужно в личном кабинете GREEN-API, создав инстанс и авторизовав его через QR-код). Можно создать чат по номеру, отправить текст и получить входящие сообщения.
 
-Currently, two official plugins are available:
+Стек: React, TypeScript, Vite, Zustand, Zod, CSS Modules.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Запуск
 
-## React Compiler
+1. `git clone https://github.com/Natalia-tech-del/max-web-chat.git`
+2. `cd max-web-chat`
+3. `npm install`
+4. `copy .env.example .env` (команда для Windows / PowerShell)
+5. `npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Открыть адрес, который покажет Vite (обычно `http://localhost:5173`).
 
-## Expanding the ESLint configuration
+После шага 4 в файле `.env` будет адрес API, например `VITE_API_URL=https://3100.api.green-api.com`. Если `idInstance` начинается не с 3100, поменяй цифры в этом адресе на начало своего инстанса.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Кабинет GREEN-API
+1. Зарегистрироваться.
+2. Создать инстанс MAX Developer (бесплатный тариф).
+3. В приложении MAX отсканировать QR и привязать устройство.
+4. Включить входящие уведомления.
+5. Поле webhook URL оставить пустым.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Как пользоваться
+1. На экране авторизации ввести ключи из личного кабинета `idInstance` и `apiTokenInstance`. Если инстанс `authorized`, откроются чаты.
+2. Нажать кнопку «Плюс», в появившемся окне набрать номер в формате `7` и 10 цифр, нажать «Создать».
+3. Выбрать чат слева, написать сообщение справа.
+4. Ответ из MAX появляется в том же чате, соответствующем выделенному номеру из панели слева.
+5. После окончания работы нажать «Выйти».
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Список чатов и сообщений хранится в `localStorage` браузера. Кнопка «Выйти» очищает сессию, чаты и сообщения.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+## Методы API
+- `getStateInstance` — проверка ключей и статуса инстанса
+- `checkAccount` —  проверка, есть ли MAX у номера
+- `sendMessage` — исходящее текстовое сообщение
+- `receiveNotification` / `deleteNotification` — входящие (опрос, пока открыта страница чатов) /  удаление первого уведомления из очереди
