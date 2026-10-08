@@ -4,16 +4,7 @@
     flex: 1;
     background: linear-gradient(180deg, #7eb6f6 0%, #c5e4fb 100%);
   }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    height: 64px;
-    padding: 0 16px;
-    background: #fff;
-  }
-  
+   
   .back {
     border: 0;
     background: transparent;
@@ -51,8 +42,35 @@
     overflow: auto;
   }
   
-  .message {
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 64px;
+    padding: 0 16px;
+    background: #fff;
+    border-bottom: 1px solid #0c0d0e29;
+  }
+  
+  .outgoing,
+  .incoming {
+    max-width: 70%;
     margin: 0;
-    color: #060708;
+    padding: 8px 12px;
+    border-radius: 16px;
     font-size: 16px;
+    line-height: 20px;
+    word-break: break-word;
+  }
+  
+  .outgoing {
+    align-self: flex-end;
+    background: #e9fdff;
+    color: #011c29;
+  }
+  
+  .incoming {
+    align-self: flex-start;
+    background: #fff;
+    color: #060708;
   }

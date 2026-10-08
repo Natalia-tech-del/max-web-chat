@@ -16,7 +16,7 @@ export const sendMessage = async (idInstance: string, apiTokenInstance: string, 
         }),
       },)
     if (response.ok) {
-    const data: TSendMessageResponse = await response.json()
+      const data: TSendMessageResponse = await response.json()
     return data
     } else {
         throw new Error('Ошибка при отправке сообщения')

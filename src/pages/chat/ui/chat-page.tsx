@@ -4,6 +4,7 @@ import { useSessionStore } from '@entities/session'
 import { useChatStore } from '@entities/chat'
 import { ChatDialog } from '@widgets/chat-dialog'
 import { useMessageStore } from '@entities/message'
+import { useReceiveNotifications } from '@features/receive-messages'
 
 export const ChatPage = () => {
     const logout = useSessionStore((state) => state.logout)
@@ -12,6 +13,8 @@ export const ChatPage = () => {
     const selectChat = useChatStore((state) => state.selectChat)
     const clearChats = useChatStore((state) => state.clearChats)
     const clearMessages = useMessageStore((state) => state.clearMessages)
+
+    useReceiveNotifications()
 
     const handleLogout = () => {
         logout()

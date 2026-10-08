@@ -31,7 +31,10 @@ export const ChatDialog = () => {
                                 <p className={styles.empty}>Сообщений пока нет</p>
                             ) : (
                                 selectedChatMessages.map((message) => (
-                                    <p key={message.idMessage} className={styles.message}>
+                                    <p
+                                        key={message.idMessage}
+                                        className={message.messageSign ? styles.outgoing : styles.incoming}
+                                    >
                                         {message.messageText}
                                     </p>
                                 ))
